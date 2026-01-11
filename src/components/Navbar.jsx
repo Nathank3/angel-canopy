@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,7 +14,9 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   const scrollToSection = (id) => {
+    setIsMobileMenuOpen(false); // Close menu on click
     if (id === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -69,7 +73,7 @@ const Navbar = () => {
         </svg>
       </div>
 
-      {/* Navigation Links */}
+      {/* Desktop Navigation */}
       <div className="hidden gap-8 md:flex">
         {navLinks.map((link) => (
           <button
@@ -84,11 +88,54 @@ const Navbar = () => {
       </div>
 
       <button
-        className="px-6 py-2 text-sm font-medium text-white transition-all duration-300 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/30 backdrop-blur-sm"
+        className="hidden px-6 py-2 text-sm font-medium text-white transition-all duration-300 rounded-full md:block bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/30 backdrop-blur-sm"
         onClick={() => window.location.href = '#footer'}
       >
         Contact Us
       </button>
+
+      {/* Mobile Menu Toggle */}
+      <button 
+        className="p-2 text-white transition-colors rounded-lg md:hidden hover:bg-white/10"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        aria-label="Toggle menu"
+      >
+        {isMobileMenuOpen ? <X /> : <Menu />}
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="absolute left-0 w-full overflow-hidden shadow-xl top-full bg-slate-900/95 backdrop-blur-xl md:hidden"
+          >
+            <div className="flex flex-col p-6 space-y-4 border-t border-white/10">
+              {navLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.id)}
+                  className="px-4 py-3 text-lg font-medium text-left text-slate-300 transition-colors rounded-lg hover:bg-white/5 hover:text-white"
+                >
+                  {link.name}
+                </button>
+              ))}
+              <hr className="border-white/10" />
+              <button
+                className="w-full px-6 py-3 text-lg font-medium text-center text-white transition-all duration-300 rounded-lg bg-indigo-600/80 hover:bg-indigo-600"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.location.href = '#footer';
+                }}
+              >
+                Contact Us
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
