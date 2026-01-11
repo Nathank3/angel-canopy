@@ -73,7 +73,7 @@ const GlassLoader = ({ onLoadingComplete }) => {
       </motion.div>
 
       {/* Text Reveal */}
-      <h1 className="mb-8 text-2xl font-light tracking-widest text-white md:text-3xl">
+      <h1 className="mb-8 px-4 text-2xl font-light tracking-widest text-center text-white md:text-3xl">
         {text.split("").map((char, index) => (
           <motion.span
             key={index}
