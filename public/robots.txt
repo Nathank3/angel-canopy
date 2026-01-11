@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arce.com/sitemap.xml

@@ -26,19 +26,51 @@ const GlassLoader = ({ onLoadingComplete }) => {
       exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
       transition={{ duration: 0.8 }}
     >
-      {/* Glowing Orb */}
+      {/* Glowing Orb with Flying-in Logo */}
       <motion.div
-        className="w-24 h-24 mb-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-[0_0_60px_rgba(99,102,241,0.6)]"
+        className="relative flex items-center justify-center w-32 h-32 mb-8 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-600/20 shadow-[0_0_60px_rgba(99,102,241,0.4)] backdrop-blur-sm"
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.8, 1, 0.8],
+          scale: [1, 1.1, 1],
         }}
         transition={{
-          duration: 2,
+          duration: 3,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-      />
+      >
+        <motion.svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 100"
+          fill="none"
+          className="w-20 h-20"
+          initial={{ scale: 0, opacity: 0, rotate: -180 }}
+          animate={{ scale: 1, opacity: 1, rotate: 0 }}
+          transition={{ 
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+            duration: 1.5 
+          }}
+        >
+          <defs>
+            <linearGradient id="loaderGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="white" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="white" stopOpacity="1" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M15,85 C15,85 25,20 65,15 C85,12.5 95,30 95,30 C95,30 85,5 55,10 C25,15 5,85 5,85 Z"
+            fill="url(#loaderGradient)"
+          />
+          <circle
+            cx="55"
+            cy="55"
+            r="12"
+            fill="white"
+            fillOpacity="1"
+          />
+        </motion.svg>
+      </motion.div>
 
       {/* Text Reveal */}
       <h1 className="mb-8 text-2xl font-light tracking-widest text-white md:text-3xl">

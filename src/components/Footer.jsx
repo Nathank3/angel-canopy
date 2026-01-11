@@ -6,8 +6,8 @@ const Footer = () => {
       <div className="max-w-6xl px-6 mx-auto text-center">
         <h2 className="mb-6 text-2xl font-bold text-white">Angels Regional Canopy Enterprises</h2>
         <div className="flex justify-center gap-8 mb-8 text-sm text-slate-400">
-           <a href="mailto:contact@arce.com" className="hover:text-white">Email Us</a>
-           <a href="https://wa.me/" className="hover:text-white">WhatsApp</a>
+           <a href="mailto:mercyangeline85@gmail.com" className="hover:text-white transition-colors" aria-label="Email Us">Email Us</a>
+           <a href="https://wa.me/254745290191" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Chat on WhatsApp">WhatsApp</a>
         </div>
         <p className="text-xs text-slate-500">
           &copy; {new Date().getFullYear()} Angels Regional Canopy Enterprises. All rights reserved.

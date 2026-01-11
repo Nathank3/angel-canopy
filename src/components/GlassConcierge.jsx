@@ -13,8 +13,12 @@ const GlassConcierge = () => {
   ];
 
   const handleOptionClick = (text) => {
-    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
+    // hello, i have been redirected from your website. i am interested in ...
+    const baseMessage = "hello, i have been redirected from your website. i am interested in ";
+    const fullMessage = `${baseMessage}${text.toLowerCase()}`;
+    const url = `https://wa.me/254745290191?text=${encodeURIComponent(fullMessage)}`;
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
   };
 
   return (
@@ -48,10 +52,11 @@ const GlassConcierge = () => {
       </AnimatePresence>
       
       <motion.button
-        onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="flex items-center justify-center w-14 h-14 text-white rounded-full shadow-lg bg-gradient-to-br from-indigo-500 to-purple-600 shadow-indigo-500/30"
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-center w-16 h-16 transition-colors rounded-full shadow-2xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:shadow-indigo-500/50"
+        aria-label="Toggle Concierge"
       >
         {isOpen ? <X /> : <MessageCircle />}
       </motion.button>

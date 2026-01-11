@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 const CeoCorner = () => {
   return (
-    <section className="px-6 py-20">
-      <div className="grid max-w-6xl gap-12 mx-auto md:grid-cols-2 lg:gap-20 item-center">
+    <section id="about" className="px-6 py-20">
+      <div className="grid max-w-6xl gap-12 mx-auto md:grid-cols-2 lg:gap-20 items-center">
         
         {/* Image Placeholder */}
         <motion.div
@@ -14,8 +14,8 @@ const CeoCorner = () => {
            className="relative aspect-square"
         >
           <div className="absolute inset-0 rotate-6 rounded-3xl bg-white/5 backdrop-blur-sm" />
-          <div className="absolute inset-0 flex items-center justify-center overflow-hidden border -rotate-3 rounded-3xl bg-white/10 border-white/20 backdrop-blur-md">
-            <span className="text-white/30">CEO Image Placeholder</span>
+          <div className="absolute inset-0 overflow-hidden border -rotate-3 rounded-3xl bg-white/10 border-white/20 backdrop-blur-md">
+            <img src="/ceo.jpg" alt="Angeline Maundu" className="object-cover w-full h-full" />
           </div>
         </motion.div>
 
@@ -39,7 +39,7 @@ const CeoCorner = () => {
               "At Angels Regional, we believe in quality that protects and serves. Whether it's the tools you teach with or the tech you work with, we have you covered. We don't just supply products; we build relationships under one transparent canopy."
             </p>
             <div className="mt-6">
-              <p className="font-bold text-white">James Angel</p>
+              <p className="font-bold text-white">Angeline Maundu</p>
               <p className="text-sm text-white/50">Founder & CEO</p>
             </div>
           </motion.div>

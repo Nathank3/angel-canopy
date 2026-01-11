@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="canopyGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#4f46e5" stopOpacity="1" />
+      <stop offset="100%" stopColor="#a855f7" stopOpacity="1" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M15,85 C15,85 25,20 65,15 C85,12.5 95,30 95,30 C95,30 85,5 55,10 C25,15 5,85 5,85 Z"
+    fill="url(#canopyGradient)"
+  />
+  <circle
+    cx="55"
+    cy="55"
+    r="12"
+    fill="#4f46e5"
+    fillOpacity="1"
+  />
+</svg>
