@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const CeoCorner = () => {
   return (
-    <section id="about" className="px-6 py-20">
+    <section id="about" className="px-6 py-20 scroll-mt-24">
       <div className="grid max-w-6xl gap-12 mx-auto md:grid-cols-2 lg:gap-20 items-center">
         
         {/* Image Placeholder */}

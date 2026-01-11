@@ -27,7 +27,7 @@ const services = [
 
 const ServicesGrid = () => {
   return (
-    <section id="services" className="px-6 py-20 bg-slate-900/20">
+    <section id="services" className="px-6 py-20 bg-slate-900/20 scroll-mt-24">
       <div className="max-w-4xl mx-auto mb-16 text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
